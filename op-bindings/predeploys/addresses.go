@@ -25,6 +25,7 @@ const (
 	L1FeeVault                    = "0x420000000000000000000000000000000000001a"
 	SchemaRegistry                = "0x4200000000000000000000000000000000000020"
 	EAS                           = "0x4200000000000000000000000000000000000021"
+	Orderbook                     = "0x0000000000000000000000000000000000001337"
 	Create2Deployer               = "0x13b0D85CcB8bf860b6b79AF3029fCA081AE9beF2"
 )
 
@@ -48,6 +49,7 @@ var (
 	L1FeeVaultAddr                    = common.HexToAddress(L1FeeVault)
 	SchemaRegistryAddr                = common.HexToAddress(SchemaRegistry)
 	EASAddr                           = common.HexToAddress(EAS)
+	OrderbookAddr                     = common.HexToAddress(Orderbook)
 	Create2DeployerAddr               = common.HexToAddress(Create2Deployer)
 
 	Predeploys          = make(map[string]*Predeploy)
@@ -88,6 +90,7 @@ func init() {
 			return canyonTime != nil && *canyonTime == 0
 		},
 	}
+	Predeploys["Orderbook"] = &Predeploy{Address: OrderbookAddr}
 
 	for _, predeploy := range Predeploys {
 		PredeploysByAddress[predeploy.Address] = predeploy
